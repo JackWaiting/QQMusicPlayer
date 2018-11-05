@@ -37,7 +37,6 @@ open class QQMusicApiService constructor(var context: Context) : ServiceConnecti
             }
             return instance!!
         }
-
     }
 
     override fun onServiceDisconnected(name: ComponentName?) {
@@ -51,11 +50,10 @@ open class QQMusicApiService constructor(var context: Context) : ServiceConnecti
         onQQMusicServiceConnectedChangeListener?.onQQMusicServiceConnectedChangeListener(1)
     }
 
-
     /**
      * 返回连接状态
      * */
-    fun getConnectedStete(): Boolean {
+    fun getConnectedState(): Boolean {
         return isConnected
     }
 
@@ -65,8 +63,6 @@ open class QQMusicApiService constructor(var context: Context) : ServiceConnecti
     fun getQQMusicApi(): IQQMusicApi? {
         return qqMusicApi
     }
-
-
 
     /**
      * 绑定QQ音乐API服务

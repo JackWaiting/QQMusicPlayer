@@ -9,7 +9,7 @@ import com.tencent.qqmusic.third.api.contract.Keys
  * Created by JackWaiting on 2018/10/30.
  */
 //QQ音乐事件回调
-private val QQMusicApiEventListener = object : IQQMusicApiEventListener.Stub() {
+ val QQMusicApiEventListener = object : IQQMusicApiEventListener.Stub() {
     override fun onEvent(event: String, extra: Bundle) {
         when (event) {
             Events.API_EVENT_PLAY_SONG_CHANGED -> {

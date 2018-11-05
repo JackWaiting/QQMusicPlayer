@@ -7,9 +7,9 @@ import player.music.jackwaiting.com.qq_music_player_sdk.services.QQMusicApiContr
 /**
  * Created by JackWaiting on 2018/10/30.
  */
-class QQMusicApiManager constructor(context: Context){
+class QQMusicApiManager constructor(context: Context) {
 
-    private var qqMusicApiService:QQMusicApiControlService? = null
+    private var qqMusicApiService: QQMusicApiControlService? = null
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -31,7 +31,7 @@ class QQMusicApiManager constructor(context: Context){
         qqMusicApiService = QQMusicApiControlService.getInstance(context)
     }
 
-    fun bindQQMusicApiService(){
+    fun bindQQMusicApiService() {
         qqMusicApiService?.bindQQMusicApiService()
     }
 
@@ -41,5 +41,12 @@ class QQMusicApiManager constructor(context: Context){
 
     fun onPlayNext() {
         qqMusicApiService?.onPlayNext()
+    }
+
+    /**
+     * 获取连接状态
+     * */
+    fun getConnectedState(): Boolean {
+        return qqMusicApiService?.getConnectedState()!!
     }
 }

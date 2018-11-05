@@ -4,16 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import com.tencent.qqmusic.third.api.contract.*
-import player.music.jackwaiting.com.qq_music_player_sdk.managers.QQMusicApiManager
 import player.music.jackwaiting.com.qq_music_player_sdk.utils.LogManager
 
 /**
  * Created by JackWaiting on 2018/10/30.
  */
-class QQMusicApiControlService(mContext: Context) : QQMusicApiService( mContext) {
+class QQMusicApiControlService(mContext: Context) : QQMusicApiService(mContext) {
 
     companion object {
-
         @SuppressLint("StaticFieldLeak")
         private var instance: QQMusicApiControlService? = null
 
@@ -37,17 +35,17 @@ class QQMusicApiControlService(mContext: Context) : QQMusicApiService( mContext)
     }
 
     fun onPlayPre() {
-        val result = qqMusicApi?.execute("skipToPrevious",null)
-        val errorCode = result?.getInt(Keys.API_RETURN_KEY_CODE)?:0
-        if (errorCode!= ErrorCodes.ERROR_OK){
+        val result = qqMusicApi?.execute("skipToPrevious", null)
+        val errorCode = result?.getInt(Keys.API_RETURN_KEY_CODE) ?: 0
+        if (errorCode != ErrorCodes.ERROR_OK) {
             LogManager.i("上一首失败($errorCode)")
         }
     }
 
     fun onPlayNext() {
-        val result = qqMusicApi?.execute("skipToNext",null)
-        val errorCode = result?.getInt(Keys.API_RETURN_KEY_CODE)?:0
-        if (errorCode!= ErrorCodes.ERROR_OK){
+        val result = qqMusicApi?.execute("skipToNext", null)
+        val errorCode = result?.getInt(Keys.API_RETURN_KEY_CODE) ?: 0
+        if (errorCode != ErrorCodes.ERROR_OK) {
             LogManager.i("下一首失败($errorCode)")
         }
     }
@@ -67,6 +65,5 @@ class QQMusicApiControlService(mContext: Context) : QQMusicApiService( mContext)
                 }
             }
         }
-
     }
 }
